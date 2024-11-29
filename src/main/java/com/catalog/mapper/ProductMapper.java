@@ -2,9 +2,10 @@ package com.catalog.mapper;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import com.catalog.model.Product;
+
 import com.catalog.dto.ProductRequestDTO;
 import com.catalog.dto.ProductResponseDTO;
+import com.catalog.model.Product;
 
 public class ProductMapper {
     

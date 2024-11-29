@@ -3,12 +3,13 @@ package com.catalog.service;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.catalog.model.Product;
+
 import com.catalog.repository.ProductRepository;
 import com.catalog.exception.ResourceNotFoundException;
 import com.catalog.dto.ProductRequestDTO;
 import com.catalog.dto.ProductResponseDTO;
 import com.catalog.mapper.ProductMapper;
+import com.catalog.model.Product;
 
 @Service
 public class ProductServiceImpl implements ProductService {
