@@ -38,7 +38,6 @@ public class GlobalExceptionHandler {
     }
 }
 
-// Classe interna para representar os detalhes do erro
 class ErrorDetails {
     private Date timestamp;
     private String message;
