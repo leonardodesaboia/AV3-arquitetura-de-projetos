@@ -5,7 +5,7 @@ import java.util.stream.Collectors;
 
 import com.catalog.dto.ProductRequestDTO;
 import com.catalog.dto.ProductResponseDTO;
-import com.catalog.model.Product;
+import com.catalog.entity.Product;
 
 public class ProductMapper {
     

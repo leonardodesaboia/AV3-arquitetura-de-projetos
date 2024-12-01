@@ -5,11 +5,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.catalog.repository.ProductRepository;
+
+import jakarta.transaction.Transactional;
+
 import com.catalog.exception.ResourceNotFoundException;
 import com.catalog.dto.ProductRequestDTO;
 import com.catalog.dto.ProductResponseDTO;
+import com.catalog.entity.Product;
 import com.catalog.mapper.ProductMapper;
-import com.catalog.model.Product;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -57,5 +60,20 @@ public class ProductServiceImpl implements ProductService {
             throw new ResourceNotFoundException("Produto não encontrado com id: " + id);
         }
         productRepository.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public ProductResponseDTO updateStock(Long id, Integer quantity) {
+        Product product = productRepository.findById(id)
+            .orElseThrow(() -> new ResourceNotFoundException("Produto não encontrado com id: " + id));
+        
+        if (product.getStock() < quantity) {
+            throw new IllegalStateException("Estoque insuficiente");
+        }
+        
+        product.setStock(product.getStock() - quantity);
+        Product updatedProduct = productRepository.save(product);
+        return ProductMapper.toDTO(updatedProduct);
     }
 }
