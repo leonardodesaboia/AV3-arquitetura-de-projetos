@@ -31,3 +31,35 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Application Properties ###
+src/main/resources/application-prod.properties
+src/main/resources/application-production.properties
+
+### Environment Variables ###
+.env
+.env.local
+.env.production
+*.env
+
+### Database ###
+*.sql
+/src/main/resources/data.sql
+/src/main/resources/schema.sql
+
+### Logs ###
+/logs/
+*.log
+*.log.*
+
+### Security ###
+**/application-*.yml
+**/application-*.yaml
+!**/application.yml
+!**/application.yaml
+!**/application-dev.yml
+!**/application-dev.yaml
+
+### Sensitive Data ###
+**/resources/credentials/
+**/resources/secrets/
