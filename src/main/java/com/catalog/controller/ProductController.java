@@ -43,7 +43,7 @@ public class ProductController {
         productService.deleteProduct(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-
+    
     @PutMapping("/{id}/stock")
     public ResponseEntity<ProductResponseDTO> updateStock(
             @PathVariable Long id, 
